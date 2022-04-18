@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
@@ -13,7 +14,7 @@ public class FillForm {
     //locators
     SelenideElement cityDeparture = $("#origin");
     SelenideElement cityDestination = $("#destination");
-    SelenideElement openCalendar = $("[data-test-id=departure-date-field]");
+    SelenideElement openCalendar = $(".trip-duration__input-wrapper.--departure");
     SelenideElement setMonth = $(".calendar-caption__select");
     SelenideElement setDay = $(".calendar__weeks-body");
     SelenideElement setNoReturnTickets = $("[data-test-id=no-return-ticket]");
@@ -38,6 +39,7 @@ public class FillForm {
     }
 
     public FillForm setDayOfDeparture(String monthOfDeparture, String dayOfDeparture) {
+        Selenide.sleep(3000);
         openCalendar.shouldBe(visible).click();
         setMonth.click();
         setMonth.selectOption(monthOfDeparture);
