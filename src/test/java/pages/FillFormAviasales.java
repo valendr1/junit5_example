@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class FillForm {
+public class FillFormAviasales {
 
     //locators
     SelenideElement cityDeparture = $("#origin");
@@ -25,20 +25,20 @@ public class FillForm {
 
 
     //actions
-    public FillForm setCityDeparture(String cityDepartureChoose) {
+    public FillFormAviasales setCityDeparture(String cityDepartureChoose) {
         cityDeparture.click();
         cityDeparture.sendKeys(Keys.BACK_SPACE);
         cityDeparture.setValue(cityDepartureChoose);
         return this;
     }
 
-    public FillForm setCityDestination(String cityDestinationChoose) {
+    public FillFormAviasales setCityDestination(String cityDestinationChoose) {
         cityDestination.setValue(cityDestinationChoose);
         return this;
 
     }
 
-    public FillForm setDayOfDeparture(String monthOfDeparture, String dayOfDeparture) {
+    public FillFormAviasales setDayOfDeparture(String monthOfDeparture, String dayOfDeparture) {
         Selenide.sleep(3000);
         openCalendar.shouldBe(visible).click();
         setMonth.click();
@@ -48,33 +48,33 @@ public class FillForm {
         return this;
     }
 
-    public FillForm setNoReturnTicket() {
+    public FillFormAviasales setNoReturnTicket() {
         setNoReturnTickets.click();
         return this;
     }
 
-    public FillForm notOpenBooking() {
+    public FillFormAviasales notOpenBooking() {
         setNotOpenBooking.click();
         return this;
     }
 
-    public FillForm submitForm() {
+    public FillFormAviasales submitForm() {
         submitForm.click();
         return this;
     }
 
     //asserts
-    public FillForm checkCityOfDeparture (String checkCityOfDeparture) {
+    public FillFormAviasales checkCityOfDeparture (String checkCityOfDeparture) {
         checkDeparture.shouldHave(text(checkCityOfDeparture));
         return this;
     }
 
-    public FillForm checkDate (String date){
+    public FillFormAviasales checkDate (String date){
         checkDeparture.shouldHave(text(date));
         return this;
     }
 
-    public FillForm checkCityOfDestination (String checkCityOfDestination) {
+    public FillFormAviasales checkCityOfDestination (String checkCityOfDestination) {
         checkDestination.shouldHave(text(checkCityOfDestination));
         return this;
     }
